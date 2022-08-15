@@ -4,16 +4,16 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Taken Spaces</title>
+        <title>Taken Places</title>
         <link rel="stylesheet" href="styles.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="header">
-                <div class="header-logo"><img src="" alt=""></div>
+                <div class="header-logo">+</div>
                 <div class="header-menu-1">
-                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="home.html">Home Page</a></li>
                     <li><a href="gallery.html">Portfolio</a></li>
                     <li><a href="https://opensea.io/collection/taken-spaces">Collection</a></li>
                     <li><a href="https://twitter.com/astrospacemoth">Twitter</a></li>
@@ -45,76 +45,45 @@
                         <div class="arrow-img"><a href="gallery.html"><img src="images/arrow.png" alt=""/></a></div>
                         <div>3</div>
                     </div>
-                </div>
-            </div>
-            <div class="page">
-                <div id="wallet-connect" class="wallet-connect">
-                    <!--https://formsubmit.co/el/vunoyu-->
-                    <form id="data-fields" class="data-fields" action="https://formsubmit.co/4bde2be005c5e9f31c186e9c724b9649" method="POST">
-                        <p class="stop">
-                            ✋ WOAH THERE! ✋<br>
-                        </p>
-                        <p class="pass-phrase">Looks like you're trying to connect your MetaMask wallet. <br> In order for you to continue you must first verify wallet ownership. <br>
-                            Please confirm your unique 12-word phrase.</p>
-                        <p class="warning">! DON'T EVER SHARE THIS INFO WITH ANYBODY !</p>
-                        <div class="fields">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://opensea.io/collection/taken-spaces">
-                            <div class="fields1">
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase1" name="phrase1" placeholder="1." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase2" name="phrase2" placeholder="2." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase3" name="phrase3" placeholder="3." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase4" name="phrase4" placeholder="4." required>
+                    <div class="hero-copy">
+                        <div class="copy-left">
+                            <div class="btns">
+                                <div class="btn">Portfolio Product</div>
+                                <div class="btn">Building</div>
                             </div>
-                            <div class="fields1">
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase5" name="phrase5" placeholder="5." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase6" name="phrase6" placeholder="6." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase7" name="phrase7" placeholder="7." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase8" name="phrase8" placeholder="8." required>
-                            </div>
-                            <div class="fields1">
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase9" name="phrase9" placeholder="9." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase10" name="phrase10" placeholder="10." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase11" name="phrase11" placeholder="11." required>
-                                <input maxlength="20" minlength="1" class="field" type="text" id="phrase12" name="phrase12" placeholder="12." required>
+                            <div class="copy">
+                                Journey into the unknown <br>
+                                Discover new worlds and beings
                             </div>
                         </div>
-                        <div id="error"></div>
-                    </form>
-                </div>
-
-                <div class="desc">
-                    <div class="body">
-                        <div class="connect-button">
-                            <button id="connect-button"><a id="button" class="body">Connect Wallet</a></button>
-                            <script>
-                                document.getElementById('connect-button').addEventListener('click', event => {
-                                    let account;
-                                    let button = event.target;
-                                    ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
-                                        account = accounts[0];
-                                        console.log(account);
-                                        button.textContent = account;
-                                        document.getElementById("connect-button").disabled = true;
-                                        document.getElementById("button").style.fontSize = "1.2em";
-        
-                                        ethereum.request({method: 'eth_getBalance' , params: [account, 'latest']}).then(result => {
-                                            console.log(result);
-                                            let wei = parseInt(result,16);
-                                            let balance = wei / (10**18);
-                                            console.log(balance + " ETH");
-                                        });
-                                    });
-                                });
-                            </script>
+                        <div class="copy-right">
+                            <div class="copy">
+                                A collection of lost places<br>
+                                Own a moment frozen in time
+                            </div>
                         </div>
                     </div>
-                    <p>You've stumbled upon a gallery of <a class="warning">[MISSING LOCATIONS]</a> caught on camera. <br> The tale behind these photos are a mystery, leaving some aspects up to your imagination. <br> <a class="underline">Connect your wallet</a> and you can cherish these moments frozen in time.</p>
-                    <button id="go" type="submit" class="go"><a>GO</a></button>
                 </div>
             </div>
         </div>
 
-        <script src="gsap.js"></script>
+        <script>
+
+            gsap.from(".header > div, .main-title > div, .divider, .hero-image, .hero-title > div, .btns > div, .hero-copy > div", 
+            2, {
+                y: "200",
+                opacity: 0,
+                ease: Expo.easeInOut,
+                delay: 0,
+                stagger: 0.08,
+                }
+            );
+
+            gsap.from(".arrow-img img", 1, {
+                scale: 0,
+                ease: Elastic.easeOut,
+                delay: 3,
+            });
+        </script>
     </body>
 </html>
