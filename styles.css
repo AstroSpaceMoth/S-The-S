@@ -11,6 +11,15 @@ html, body {
     height: 100vh;
     background: #c3c3c3;
     font-family: "Space Grotesk";
+    overflow:hidden;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
 }
 
 .header {
@@ -28,6 +37,22 @@ html, body {
 
 .header li {
     list-style: none;
+    text-decoration: inherit;
+}
+
+.header a {
+    text-decoration: none;
+    color:#000;
+}
+
+.header a:hover {
+    color:yellowgreen;
+    font-weight: bold;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 .header-hamburger {
@@ -47,8 +72,40 @@ html, body {
 
 .body {
     font-size: 2em;
-    font-weight: 400;
-    padding: 0 2em;
+    font-weight: 500;
+    margin: 1em 0em;
+    color: #000;
+    text-decoration: none;
+}
+
+#button:disabled,
+button[disabled] {
+    background-color: yellowgreen;
+    border-radius: 10px;
+}
+
+#button:disabled a,
+button[disabled] a {
+    color: #717171;
+}
+
+.desc {
+    margin-top: 0;
+    font-size: 1.5em;
+    line-height: 3em;
+}
+
+.desc-about {
+    padding: 2em 10em;
+    margin-top: 0;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+
+.underline {
+    font-weight: 500;
+    border-bottom: 2px solid #000;
 }
 
 .warning {
@@ -59,24 +116,84 @@ html, body {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;  
+    line-height: 3em;
 }
 
-.data-fields {
-    padding:  8em;
-}
-
-.field {
-    margin: 0.5em 0.3em 0.5em;
-    border: 1px solid greenyellow;
-    box-shadow:
+.stop {
+    color: red;
+    font-weight: bolder;
+    font-size: 1.2em;
+    text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;  
+    line-height: 3em;
+}
+
+.pass-phrase {
+    line-height: 1em;
+}
+
+.data-fields {
+    padding: 2em 0em;    
+    display: block;
+    opacity: 0;
+    width: 0;
+}
+
+.field {
+    margin: 0.5em 0.3em 0.5em;
+    height: 2em;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.fields {
+    border-top: 2px solid black;
+    margin-top: 0em;
+    padding-top: 1em;
+}
+
+.wallet-connect {
+    opacity: 0;
+    padding: 1em 3em;
+    margin: 1em 3em;
+    border: 2px solid grey;
+    background-color: lightgrey;
+    border-radius: 3vh;
 }
 
 .connect-button {
+    margin: auto
+}
 
+.connect-button button {
+    padding: 0.2em;
+    border: 2px solid grey;
+    border-radius: 1vh;
+}
+
+.go {
+    opacity: 0;
+    display: block;
+    font-size: 2em;
+    color: yellowgreen;
+    border-radius: 5px;
+    padding: 0em .5em;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 1vh;
+    border: 2px solid black;
+}
+
+.go a {
+    text-decoration: none;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 .wrapper {
@@ -118,7 +235,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: url("./images/cover.jpeg") no-repeat 50% 50%;
+    background: url("./images/cover3.png") no-repeat 50% 50%;
     background-size: cover;
 }
 
@@ -147,6 +264,11 @@ html, body {
 .copy-left {
     color: greenyellow;
     text-transform: uppercase;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
 .btns {
@@ -165,53 +287,60 @@ html, body {
     text-align: right;
     color: #fff;
     text-transform: uppercase;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 
-
-.loader {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    display: none;
+div.gallery {
+    margin: 5px;
+    border: 1px solid grey;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    float: left;
+    width: 15%;
 }
-
-.account {
-    background: rgb(233, 233, 233);
-    padding: .3em;
-    border-radius: .3em;
-    position: relative;
-    display: inline-block;
-    text-indent: 1.2em;
+  
+div.gallery:hover {
+    border: 1px solid #777;
 }
-
-.account:before {
-        position: absolute;
-        content: "";
-        background: green;
-        width: .7em;
-        height: .7em;
-        border-radius: 50%;
-        left: .5em;
-        top: .6em;
+  
+div.gallery img {
+    width: 100%;
+    height: auto;
 }
-
-.up {
-    position: absolute;
-    top: 2em;
-    right: 2em;
-    width: 10em;
-    display: none;
+  
+div.description {
+    padding: 1em;
+    text-align: center;
 }
-
-.confetti {
-    position: absolute;
-    width: 20em;
-    z-index: 2;
-    display: none;
-}
-
 
 @media(max-width: 900px) {
+    .wallet-connect {
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        border: 2px solid grey;
+        background-color: lightgrey;
+        border-radius: 3vh;
+    }
+
+    .page {
+        flex-direction: column-reverse;
+        padding: 0 0.5em ;
+    }
+
+    .body {
+        margin: 0;
+        font-size: 2em;
+        font-weight: 500;
+        padding: 0em;
+        color: #000;
+        text-decoration: none;
+    }
+    
     .header-menu-1, .header-menu-2 {
         display: none;
     }
@@ -221,7 +350,8 @@ html, body {
     }
 
     .hero-title img {
-        display: none;
+        scale: 50%;
+        margin-bottom: -80%;
     }
 
     .hero-copy {
@@ -244,11 +374,49 @@ html, body {
     .field {
         width: 20%;
         margin: 0.5em 0.3em 0.5em;
-        border: 1px solid greenyellow;
+        height: fit-content;
         box-shadow:
         -1px -1px 0 #000,
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;  
+    }
+
+    .desc {
+        font-size: 0.8em;
+        line-height: 1.1em;
+    }
+
+    .desc-about {
+        padding: 2em 0.1em;
+        margin-top: 0;
+        font-size: 0.9em;
+        line-height: 2em;
+    }
+
+    #button:disabled {
+        background-color: yellowgreen;
+        border-radius: 9px;
+    }
+
+    #button:disabled a {
+        color: #717171;
+    }
+
+    .pass-phrase {
+        font-size: 0.8em;
+        line-height: 1.1em;
+    }
+
+    .warning, .stop {
+        padding-top: 1em;
+        font-size: 1em;
+        line-height: 1em;
+    }
+
+    .stop {
+        text-align: center;
+        padding: 0 0 1em;
+        line-height: 1em;
     }
 }
